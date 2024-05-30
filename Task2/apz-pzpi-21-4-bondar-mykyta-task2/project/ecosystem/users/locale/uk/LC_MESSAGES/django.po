@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-19 18:54+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: templates/users/login.html:84 templates/users/login.html:117
+msgid "Login"
+msgstr "Авторизація"
+
+#: templates/users/login.html:109 templates/users/registration.html:110
+#: templates/users/settings.html:97
+msgid "Username"
+msgstr "Імʼя користувача"
+
+#: templates/users/login.html:113 templates/users/registration.html:118
+msgid "Password"
+msgstr "Пароль"
+
+#: templates/users/login.html:121
+msgid "Don't have an account?"
+msgstr "Ще немає аккаунту?"
+
+#: templates/users/login.html:121
+msgid "Sign Up"
+msgstr "Зареєструватися"
+
+#: templates/users/profile.html:86
+msgid "User profile"
+msgstr "Профіль користувача"
+
+#: templates/users/profile.html:89
+msgid "Welcome"
+msgstr "Привіт"
+
+#: templates/users/profile.html:91
+msgid "Add Location"
+msgstr "Додати локацію"
+
+#: templates/users/profile.html:95
+msgid "Logout"
+msgstr "Вийти"
+
+#: templates/users/registration.html:81
+msgid "Registartion"
+msgstr "Реєстрація"
+
+#: templates/users/registration.html:101 templates/users/settings.html:86
+msgid "First Name"
+msgstr "Імʼя"
+
+#: templates/users/registration.html:105 templates/users/settings.html:90
+msgid "Last Name"
+msgstr "Прізвище"
+
+#: templates/users/registration.html:114 templates/users/settings.html:101
+msgid "Email"
+msgstr "Пошта"
+
+#: templates/users/registration.html:122
+msgid "Confirm password"
+msgstr "Підтвердіть пароль"
+
+#: templates/users/registration.html:126
+msgid "Gender"
+msgstr "Стать"
+
+#: templates/users/registration.html:130
+msgid "Birthdate"
+msgstr "Дата народження "
+
+#: templates/users/registration.html:134
+msgid "Register"
+msgstr "Зареєструватися"
+
+#: templates/users/registration.html:138
+msgid "Already have an account?"
+msgstr "Вже є аккаунт?"
+
+#: templates/users/registration.html:138
+msgid "Log In"
+msgstr "Увійти"
+
+#: templates/users/settings.html:80
+msgid "User Settings"
+msgstr "Налаштування профілю"
+
+#: templates/users/settings.html:105
+msgid "New Password"
+msgstr "Новий пароль"
+
+#: templates/users/settings.html:109
+msgid "Confirm New Password"
+msgstr "Підтвердити пароль"
+
+#: templates/users/settings.html:113
+msgid "Save Changes"
+msgstr "Зберегти зміни"

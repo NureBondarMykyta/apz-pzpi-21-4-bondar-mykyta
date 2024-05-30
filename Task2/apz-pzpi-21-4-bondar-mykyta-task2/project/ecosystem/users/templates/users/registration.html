@@ -1,0 +1,143 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCA9b-B5LR2WI4Ema7svAK_6RJOLBjmcnNZbDewI-Gu6N8DvHXKx4GiUWPcM7kWwxe030&usqp=CAU');
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            width: 600px;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 15px 15px 0 0;
+        }
+         .language-switcher {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .language-switcher select {
+            border: none;
+            background: none;
+            padding: 5px;
+            font-size: 16px;
+        }
+        .language-switcher input[type="submit"] {
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .language-switcher input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="language-switcher">
+        <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <select name="language">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                        {{ language.name_local }} ({{ language.code }})
+                    </option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Go">
+        </form>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title text-center pt-3">{% translate 'Registartion' %}</h5>
+        </div>
+        <div class="card-body">
+            <div>
+            <form method="post" action="{% url 'users:registration' %}">
+                {% csrf_token %}
+                {% if form.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            Please correct the following errors:
+                            <ul>
+                                {% for field, errors in form.errors.items %}
+                                    {% for error in errors %}
+                                        <li>{{ error }} ❌</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="{{ form.first_name.id_for_label }}" class="form-label">{% translate 'First Name' %}</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="col">
+                        <label for="{{ form.last_name.id_for_label }}" class="form-label">{% translate 'Last Name' %}</label>
+                        {{ form.last_name }}
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.username.id_for_label }}" class="form-label">{% translate 'Username' %}</label>
+                    {{ form.username }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.email.id_for_label }}" class="form-label">{% translate 'Email' %}</label>
+                    {{ form.email }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.password1.id_for_label }}" class="form-label">{% translate 'Password' %}</label>
+                   {{ form.password1 }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.password2.id_for_label }}" class="form-label">{% translate 'Confirm password' %}</label>
+                   {{ form.password2 }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.gender.id_for_label }}" class="form-label">{% translate 'Gender' %}</label>
+                    {{ form.gender }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.birth_date.id_for_label }}" class="form-label">{% translate 'Birthdate' %}</label>
+                    {{ form.birth_date }}
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">{% translate 'Register' %}</button>
+                </div>
+            </form>
+            <div class="text-center mt-3">
+                <p> {% translate 'Already have an account?' %} <a href="{% url 'users:login' %}">{% translate 'Log In' %}</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
